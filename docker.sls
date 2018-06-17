@@ -5,6 +5,9 @@ docker:
     enabled: true
     options: {}
     pkgs: [{'docker-ce': '18.03.1~ce-0~ubuntu'}, 'python-docker']
+    {%- if grains.os == 'Raspbian' %}
+    service: docker
+    {%- endif %}
   client:
     enabled: true
     container:
